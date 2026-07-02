@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyanshu Verma — Java Backend Engineer | FinTech & Banking Systems</title>
+<meta name="description" content="Portfolio of Priyanshu Verma — Java Backend Developer with 3.8+ years in Spring Boot, Kafka, Microservices and core banking (TCS BaNCS). Onsite Technical Lead in Johannesburg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F5EF;
+  --paper-2:#EFEDE4;
+  --ink:#12233D;
+  --ink-deep:#0B1729;
+  --seal:#0E7A5C;
+  --seal-soft:#E3F0EA;
+  --gold:#B8842A;
+  --line:#D8D4C6;
+  --muted:#5B6473;
+  --white:#FFFFFF;
+  --radius:10px;
+  --maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--seal);color:#fff}
+a{color:var(--seal);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,245,239,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.05rem;letter-spacing:-.01em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.brand .tick{color:var(--seal)}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{color:var(--ink);font-size:.9rem;font-weight:500}
+.status-pill{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  background:var(--seal-soft);color:var(--seal);
+  border:1px solid var(--seal);border-radius:999px;padding:5px 12px;
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+}
+.status-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--seal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media(max-width:820px){.nav a.hide-m{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;
+}
+h1{
+  font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-.03em;
+  font-size:clamp(2.6rem,5.4vw,4.2rem);line-height:1.02;margin-bottom:20px;
+}
+h1 .thin{font-weight:500;color:var(--muted)}
+.hero-sub{font-size:1.08rem;color:var(--muted);max-width:52ch;margin-bottom:30px}
+.hero-sub b{color:var(--ink);font-weight:600}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;border-radius:8px;
+  padding:13px 22px;font-weight:600;font-size:.94rem;cursor:pointer;
+  border:1.5px solid var(--ink);transition:transform .12s ease,box-shadow .12s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{box-shadow:0 6px 18px rgba(18,35,61,.25)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-seal{background:var(--seal);border-color:var(--seal);color:#fff}
+.btn-seal:hover{box-shadow:0 6px 18px rgba(14,122,92,.3)}
+
+/* SWIFT message card — the signature */
+.swift{
+  background:var(--ink-deep);border-radius:14px;padding:26px 24px;
+  box-shadow:0 20px 50px rgba(11,23,41,.35);
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;line-height:1.9;
+  color:#C9D4E4;position:relative;overflow:hidden;
+}
+.swift::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.015) 3px,rgba(255,255,255,.015) 4px);
+  pointer-events:none;
+}
+.swift-head{
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px dashed #33455F;padding-bottom:12px;margin-bottom:14px;
+  font-size:.68rem;letter-spacing:.1em;color:#7E93B0;
+}
+.swift-head .live{color:#4FCB9B}
+.swift .tag{color:#E4B15C}
+.swift .val{color:#EDF2F8}
+.swift .ok{color:#4FCB9B;font-weight:600}
+.swift-row{white-space:pre-wrap}
+.swift-stamp{
+  margin-top:16px;display:inline-block;border:1.5px solid #4FCB9B;color:#4FCB9B;
+  border-radius:6px;padding:4px 12px;font-size:.68rem;letter-spacing:.18em;
+  transform:rotate(-2deg);font-weight:600;
+}
+.cursor{display:inline-block;width:8px;height:14px;background:#4FCB9B;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- ledger strip ---------- */
+.ledger{border-bottom:1px solid var(--line);background:var(--paper-2)}
+.ledger-in{display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:820px){.ledger-in{grid-template-columns:repeat(2,1fr)}}
+.ledger-item{padding:26px 24px;border-right:1px solid var(--line)}
+.ledger-item:last-child{border-right:none}
+@media(max-width:820px){.ledger-item:nth-child(2){border-right:none}.ledger-item:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.ledger-num{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.9rem;letter-spacing:-.02em}
+.ledger-num span{color:var(--seal)}
+.ledger-label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+/* ---------- sections ---------- */
+section{padding:76px 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px;flex-wrap:wrap}
+.sec-code{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.14em;color:var(--gold)}
+h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.7rem,3vw,2.3rem);letter-spacing:-.02em}
+.sec-note{font-size:.92rem;color:var(--muted);flex-basis:100%;max-width:64ch}
+
+/* experience — transaction log */
+.txn{
+  display:grid;grid-template-columns:190px 1fr;gap:28px;
+  padding:30px 0;border-top:1px solid var(--line);
+}
+.txn:last-child{border-bottom:1px solid var(--line)}
+@media(max-width:760px){.txn{grid-template-columns:1fr;gap:10px}}
+.txn-date{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--muted);line-height:1.9}
+.txn-date .badge{
+  display:inline-block;background:var(--ink);color:#fff;border-radius:5px;
+  padding:2px 9px;font-size:.66rem;letter-spacing:.1em;margin-top:6px;
+}
+.txn h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-.01em}
+.txn .org{color:var(--seal);font-weight:600;font-size:.95rem;margin-bottom:12px}
+.txn ul{list-style:none;margin-top:6px}
+.txn li{padding-left:22px;position:relative;margin-bottom:9px;color:#33405A;font-size:.95rem}
+.txn li::before{content:"›";position:absolute;left:2px;color:var(--gold);font-weight:700}
+.txn li b{color:var(--ink)}
+
+/* projects */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:860px){.proj-grid{grid-template-columns:1fr}}
+.proj{
+  background:var(--white);border:1px solid var(--line);border-radius:14px;
+  padding:30px 28px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.proj:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(18,35,61,.1)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.proj h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-.01em}
+.proj .kind{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.proj p{color:#33405A;font-size:.94rem}
+.proj p b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+.chip{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:500;
+  background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:#41506B;
+}
+.proj-link{font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:6px}
+
+/* skills board */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.skills-grid{grid-template-columns:1fr}}
+.skill-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.skill-card h4{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--seal);margin-bottom:14px;
+  padding-bottom:10px;border-bottom:1px dashed var(--line);
+}
+.skill-card .chips{margin-top:0}
+
+/* awards */
+.awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.awards-grid{grid-template-columns:1fr}}
+.award{
+  display:flex;gap:16px;background:var(--white);border:1px solid var(--line);
+  border-radius:12px;padding:20px 22px;align-items:flex-start;
+}
+.award .medal{
+  flex-shrink:0;width:42px;height:42px;border-radius:50%;
+  background:var(--seal-soft);border:1.5px solid var(--seal);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Archivo',sans-serif;font-weight:800;color:var(--seal);font-size:.8rem;
+}
+.award h4{font-weight:600;font-size:1rem}
+.award p{font-size:.88rem;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--ink-deep);color:#DCE4F0;border-radius:18px;padding:56px 48px;margin-bottom:76px}
+@media(max-width:700px){.contact{padding:40px 26px}}
+.contact h2{color:#fff}
+.contact p{color:#9FAFC6;max-width:56ch;margin:16px 0 28px}
+.contact-links{display:flex;gap:14px;flex-wrap:wrap}
+.contact-links .btn{border-color:#3A4D6C;color:#EDF2F8;background:rgba(255,255,255,.04)}
+.contact-links .btn-seal{background:var(--seal);border-color:var(--seal)}
+.contact .fineprint{margin-top:30px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:#5F7397;letter-spacing:.08em}
+
+footer{padding:0 0 46px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:.08em}
+
+/* ---------- animated guide (the "person") ---------- */
+.guide{position:fixed;right:14px;bottom:0;z-index:100;display:flex;flex-direction:column;align-items:flex-end}
+.guide-bubble{
+  background:#fff;border:1.5px solid var(--ink);border-radius:16px 16px 4px 16px;
+  box-shadow:0 18px 44px rgba(11,23,41,.28);
+  padding:16px 16px 14px;max-width:340px;width:min(340px,calc(100vw - 32px));
+  margin-bottom:12px;position:relative;
+  opacity:0;transform:translateY(10px);transition:opacity .3s ease,transform .3s ease;
+  pointer-events:none;
+}
+.guide-bubble.show{opacity:1;transform:none;pointer-events:auto}
+.guide-bubble::after{
+  content:"";position:absolute;bottom:-9.5px;right:30px;width:15px;height:15px;background:#fff;
+  border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg);
+}
+.gb-name{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:7px;display:flex;justify-content:space-between;align-items:center}
+.gb-mini{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.05rem;line-height:1;padding:2px 6px}
+.gb-mini:hover{color:var(--ink)}
+.gb-text{font-size:.9rem;line-height:1.55;white-space:pre-line;min-height:22px;color:var(--ink)}
+.gb-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.gb-btn{
+  border:1.5px solid var(--ink);background:var(--ink);color:#fff;border-radius:8px;
+  padding:8px 14px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.8rem;cursor:pointer;
+}
+.gb-btn.alt{background:transparent;color:var(--ink)}
+.gb-btn.seal{background:var(--seal);border-color:var(--seal)}
+.gb-btn:hover{filter:brightness(1.1)}
+.gb-progress{font-family:'IBM Plex Mono',monospace;font-size:.64rem;color:var(--muted);letter-spacing:.1em;margin-left:auto;align-self:center}
+.gb-input-row{display:flex;gap:7px;margin-top:12px}
+.gb-input-row input{
+  flex:1;min-width:0;border:1px solid var(--line);border-radius:8px;padding:9px 12px;
+  font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;background:var(--paper);color:var(--ink);
+}
+.gb-input-row input:focus{outline:2px solid var(--seal);border-color:var(--seal)}
+.guide-char{
+  background:none;border:none;padding:0;cursor:pointer;width:112px;
+  filter:drop-shadow(0 12px 16px rgba(11,23,41,.28));
+  animation:bob 3.6s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.guide-char:hover{animation-play-state:paused}
+/* character part animations */
+.g-eyes{transform-origin:60px 34px;animation:eyeblink 4.6s infinite}
+@keyframes eyeblink{0%,94%,100%{transform:scaleY(1)}96%,98%{transform:scaleY(.08)}}
+.g-arm-wave{transform-origin:82px 68px}
+.guide-char.waving .g-arm-wave{animation:wavearm 1.5s ease-in-out 2}
+@keyframes wavearm{0%,100%{transform:rotate(0deg)}30%{transform:rotate(-52deg)}55%{transform:rotate(-30deg)}80%{transform:rotate(-50deg)}}
+.g-mouth{transform-origin:60px 45px}
+.guide-char.talking .g-mouth{animation:talk .28s ease-in-out infinite alternate}
+@keyframes talk{from{transform:scaleY(.35)}to{transform:scaleY(1.15)}}
+.guide-hint{
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--muted);
+  text-align:center;margin:2px 0 8px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">PRIYANSHU<span class="tick">.</span>VERMA</a>
+    <nav class="nav">
+      <a class="hide-m" href="#experience">Experience</a>
+      <a class="hide-m" href="#projects">Projects</a>
+      <a class="hide-m" href="#skills">Skills</a>
+      <a class="hide-m" href="#contact">Contact</a>
+      <span class="status-pill"><span class="dot"></span>OPEN TO OPPORTUNITIES · INDIA</span>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Java Backend · FinTech &amp; Core Banking Systems</div>
+      <h1>Priyanshu Verma<br><span class="thin">builds banking-grade backends.</span></h1>
+      <p class="hero-sub">
+        <b>3.8+ years</b> engineering high-availability, distributed systems with
+        <b>Spring Boot, Apache Kafka and Microservices</b> — currently Onsite Technical Lead
+        for <b>TCS BaNCS</b> at Rand Merchant Bank, ABSA and Standard Bank in Johannesburg.
+        SWIFT, ISO 20022 and DTCC compliant work, shipped to production for Tier-1 banks.
+      </p>
+      <div class="cta-row">
+        <button class="btn btn-seal" onclick="guideGreet(true)">✦ Take the guided tour</button>
+        <a class="btn btn-dark" href="#projects">View projects</a>
+        <a class="btn btn-ghost" href="mailto:priyanshuv0911@gmail.com">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="swift" aria-label="Stylized SWIFT payment message summarizing profile">
+      <div class="swift-head"><span>FIN · MT103 · SINGLE CUSTOMER CREDIT</span><span class="live">● LIVE</span></div>
+      <div id="swiftBody">
+        <div class="swift-row"><span class="tag">:20:</span>  <span class="val">PV/2022-2026/ONSITE</span></div>
+        <div class="swift-row"><span class="tag">:23B:</span> <span class="val">CRED — BACKEND ENGINEER</span></div>
+        <div class="swift-row"><span class="tag">:32A:</span> <span class="val">JHB (ZA) → PRODUCT TEAMS (IN)</span></div>
+        <div class="swift-row"><span class="tag">:50K:</span> <span class="val">PRIYANSHU VERMA / TCS BaNCS</span></div>
+        <div class="swift-row"><span class="tag">:59:</span>  <span class="val">/YOUR-ENGINEERING-TEAM</span></div>
+        <div class="swift-row"><span class="tag">:70:</span>  <span class="val">JAVA 21 · SPRING BOOT · KAFKA · REDIS · K8S</span></div>
+        <div class="swift-row"><span class="tag">:71A:</span> <span class="ok">VERIFIED — 3 TIER-1 BANKS SERVED</span></div>
+      </div>
+      <span class="swift-stamp">✓ SETTLED · READY TO DEPLOY</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ LEDGER STRIP ============ -->
+<div class="ledger">
+  <div class="wrap ledger-in">
+    <div class="ledger-item"><div class="ledger-num">3.8<span>+</span></div><div class="ledger-label">Years · Java backend</div></div>
+    <div class="ledger-item"><div class="ledger-num">3</div><div class="ledger-label">Tier-1 banks served onsite</div></div>
+    <div class="ledger-item"><div class="ledger-num">99.95<span>%</span></div><div class="ledger-label">Production uptime maintained</div></div>
+    <div class="ledger-item"><div class="ledger-num">6<span>×</span></div><div class="ledger-label">Awards for technical excellence</div></div>
+  </div>
+</div>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-code">LOG / 01</span>
+      <h2>Experience — the transaction history</h2>
+      <p class="sec-note">Every entry below cleared in production, for real banks, under real SLAs.</p>
+    </div>
+
+    <div class="txn">
+      <div class="txn-date">AUG 2022 — PRESENT<br>JOHANNESBURG, ZA<br><span class="badge">ONSITE LEAD</span></div>
+      <div>
+        <h3>System Engineer · Onsite Technical Lead</h3>
+        <div class="org">Tata Consultancy Services — TCS BaNCS</div>
+        <ul>
+          <li>Onsite lead for critical core-banking initiatives at <b>Rand Merchant Bank, ABSA and Standard Bank</b>, working directly with business, product and architecture stakeholders.</li>
+          <li>Led the <b>first Azure Cloud deployment of TCS BaNCS</b>; ran Agile/Scrum ceremonies, code reviews, and mentored 3 engineers — cutting onboarding time by 30%.</li>
+          <li>Built high-availability <b>Tax Management Interfaces</b> with Java, Spring Framework and Oracle DB — 99.9% transaction accuracy, reconciliation improved 40%, API response time down 35%.</li>
+          <li>Developed event-driven <b>microservices with Apache Kafka, Spring Batch and AWS SQS</b>; contributed to AI-powered notifications via Azure OpenAI serving 50,000+ customers.</li>
+          <li>Hardened delivery with <b>Jenkins CI/CD</b> — system reliability up from 85% to 98%, incidents down 45%, 99.95% uptime — <b>SWIFT, DTCC and ISO 20022 compliant</b>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="txn">
+      <div class="txn-date">DEC 2021 — JUL 2022<br>MUMBAI, IN</div>
+      <div>
+        <h3>Analyst</h3>
+        <div class="org">Capgemini</div>
+        <ul>
+          <li>Developed <b>Bank Management Systems</b> with Java, Spring Boot, PostgreSQL and MongoDB; containerized deployments with Docker &amp; Kubernetes on AWS EC2/S3 — deployment time down 65%.</li>
+          <li>Built <b>RESTful APIs</b> for distributed system communication; Agile sprints, JIRA-driven code reviews, and performance tuning for high-availability banking applications with JUnit, Mockito and Testcontainers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-code">LOG / 02</span>
+      <h2>Projects — built end to end</h2>
+    </div>
+    <div class="proj-grid">
+      <article class="proj">
+        <div class="proj-top">
+          <div>
+            <div class="kind">AI-Powered Fraud Detection Platform</div>
+            <h3>SentinelFlow</h3>
+          </div>
+        </div>
+        <p>Payment intelligence platform built as <b>6 Spring Boot microservices</b> — event-driven fraud scoring over a <b>Kafka exactly-once pipeline</b> (Outbox pattern, idempotent producers), a <b>distributed sliding-window rate limiter</b> on Redis with Lua scripts and Resilience4j circuit breakers, and <b>RAG-based fraud explanations</b> using GPT-4o with pgvector similarity search and a Redis semantic cache — streamed to a React front end over SSE.</p>
+        <p>Full observability with OpenTelemetry, Prometheus, Grafana and Jaeger; Testcontainers + SonarCloud quality gates in GitHub Actions CI/CD.</p>
+        <div class="chips">
+          <span class="chip">Java 21</span><span class="chip">Spring Boot 3.3</span><span class="chip">Kafka</span>
+          <span class="chip">Redis</span><span class="chip">PostgreSQL · pgvector</span><span class="chip">GPT-4o · RAG</span>
+          <span class="chip">Resilience4j</span><span class="chip">Docker</span><span class="chip">OpenTelemetry</span>
+        </div>
+        <a class="proj-link" href="https://github.com/Priyanshu-V2000" target="_blank" rel="noopener">View on GitHub →</a>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top">
+          <div>
+            <div class="kind">Event-Driven Payment System</div>
+            <h3>PayFlow</h3>
+          </div>
+        </div>
+        <p>Two-microservice payment platform demonstrating <b>event-driven architecture in depth</b>: Spring Boot services communicating over Kafka, Redis caching with custom serialization, PostgreSQL persistence, and <b>Kubernetes deployment</b> with health probes and rolling updates.</p>
+        <p>Debugged and documented real production-style failures along the way — a <b>Kafka networking hairpin fix</b>, Redis serialization mismatches, and Kubernetes image-pull issues — the kind of problems that only surface when you actually run distributed systems.</p>
+        <div class="chips">
+          <span class="chip">Spring Boot</span><span class="chip">Apache Kafka</span><span class="chip">Redis</span>
+          <span class="chip">PostgreSQL</span><span class="chip">Kubernetes</span><span class="chip">Docker</span>
+        </div>
+        <a class="proj-link" href="https://github.com/Priyanshu-V2000" target="_blank" rel="noopener">View on GitHub →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-code">LOG / 03</span>
+      <h2>The stack</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card"><h4>Languages</h4><div class="chips"><span class="chip">Java (JVM)</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">XML</span><span class="chip">HTML / CSS</span></div></div>
+      <div class="skill-card"><h4>Frameworks &amp; Messaging</h4><div class="chips"><span class="chip">Spring Boot</span><span class="chip">Spring Cloud</span><span class="chip">Spring Security</span><span class="chip">Spring Batch</span><span class="chip">Apache Kafka</span><span class="chip">Hibernate / JPA</span><span class="chip">Microservices</span></div></div>
+      <div class="skill-card"><h4>Cloud &amp; DevOps</h4><div class="chips"><span class="chip">AWS · EC2 S3 RDS SQS</span><span class="chip">Azure</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span><span class="chip">Linux</span></div></div>
+      <div class="skill-card"><h4>Data &amp; Resilience</h4><div class="chips"><span class="chip">Oracle DB</span><span class="chip">PostgreSQL</span><span class="chip">Cassandra</span><span class="chip">Redis</span><span class="chip">Resilience4j</span></div></div>
+      <div class="skill-card"><h4>AI / ML</h4><div class="chips"><span class="chip">Azure OpenAI · GPT-4o</span><span class="chip">RAG · pgvector</span></div></div>
+      <div class="skill-card"><h4>Quality &amp; Domain</h4><div class="chips"><span class="chip">JUnit 5</span><span class="chip">Mockito</span><span class="chip">TDD</span><span class="chip">Postman</span><span class="chip">SWIFT</span><span class="chip">ISO 20022</span><span class="chip">DTCC</span><span class="chip">TCS BaNCS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AWARDS ============ -->
+<section id="awards" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-code">LOG / 04</span>
+      <h2>Awards &amp; recognition</h2>
+    </div>
+    <div class="awards-grid">
+      <div class="award"><div class="medal">EQ</div><div><h4>Employee of the Quarter</h4><p>Exceptional technical performance and on-time project delivery at TCS.</p></div></div>
+      <div class="award"><div class="medal">2×</div><div><h4>Star of the Month (×2)</h4><p>Outstanding contributions in development, design and system architecture.</p></div></div>
+      <div class="award"><div class="medal">2×</div><div><h4>On the Spot Award (×2)</h4><p>Rapid resolution of production-critical P1/P2 incidents under tight SLAs.</p></div></div>
+      <div class="award"><div class="medal">BT</div><div><h4>Best Team Award</h4><p>Collaborative success across complex multi-bank BaNCS implementations.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" style="padding-top:0;padding-bottom:0">
+  <div class="wrap">
+    <div class="contact">
+      <span class="sec-code" style="color:#E4B15C">LOG / 05 — FINAL SETTLEMENT</span>
+      <h2 style="margin-top:12px">Let's build something reliable.</h2>
+      <p>Open to Senior Backend Engineer / SDE-II roles in India — FinTech, banking systems and distributed platforms. B.Tech in Electronics &amp; Communication Engineering, PSIT Kanpur (CGPA 9.0/10, 2022).</p>
+      <div class="contact-links">
+        <a class="btn btn-seal" href="mailto:priyanshuv0911@gmail.com">priyanshuv0911@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/priyanshu-verma-7378011ab/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/Priyanshu-V2000" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="tel:+917459907468">+91 74599 07468</a>
+      </div>
+      <div class="fineprint">:72: /ACC/RESPONDS-WITHIN-24H // TIMEZONE-FLEXIBLE // RELOCATION-READY</div>
+    </div>
+  </div>
+</section>
+
+<footer>PRIYANSHU VERMA · JAVA BACKEND · © 2026 · MSG-STATUS: DELIVERED ✓</footer>
+
+<!-- ============ ANIMATED GUIDE ============ -->
+<div class="guide" id="guide">
+  <div class="guide-bubble" id="gbBubble" role="dialog" aria-label="Portfolio guide">
+    <div class="gb-name"><span>PRIYANSHU · YOUR GUIDE</span><button class="gb-mini" onclick="guideMinimize()" aria-label="Minimize guide">—</button></div>
+    <div class="gb-text" id="gbText"></div>
+    <div class="gb-actions" id="gbActions"></div>
+    <div class="gb-input-row" id="gbInputRow" style="display:none">
+      <input type="text" id="gbInput" placeholder="Ask me anything…" aria-label="Ask the guide a question" onkeydown="if(event.key==='Enter')guideSend()">
+      <button class="gb-btn seal" onclick="guideSend()">Ask</button>
+    </div>
+  </div>
+  <button class="guide-char" id="gChar" onclick="guideGreet(false)" aria-label="Open the animated guide">
+    <svg viewBox="0 0 120 160" width="112" height="150" aria-hidden="true">
+      <!-- shadow -->
+      <ellipse cx="60" cy="152" rx="34" ry="6" fill="rgba(11,23,41,.18)"/>
+      <!-- legs -->
+      <rect x="46" y="112" width="12" height="32" rx="5" fill="#1B2E4B"/>
+      <rect x="62" y="112" width="12" height="32" rx="5" fill="#1B2E4B"/>
+      <path d="M42 142 h18 v8 a4 4 0 0 1 -4 4 h-14 a4 4 0 0 1 -4 -4 v-2 a6 6 0 0 1 4 -6z" fill="#0B1729"/>
+      <path d="M60 142 h18 a6 6 0 0 1 4 6 v2 a4 4 0 0 1 -4 4 h-14 a4 4 0 0 1 -4 -4z" fill="#0B1729"/>
+      <!-- left arm (holding tablet) -->
+      <path d="M40 72 q-10 4 -11 22 q0 8 7 9 q7 1 8 -7 l2 -14z" fill="#12233D"/>
+      <rect x="24" y="96" width="22" height="15" rx="3" fill="#B8842A" transform="rotate(-8 35 103)"/>
+      <rect x="27" y="99" width="16" height="9" rx="1.5" fill="#F6F5EF" transform="rotate(-8 35 103)"/>
+      <circle cx="35" cy="97" r="4.5" fill="#E8B98A"/>
+      <!-- torso / blazer -->
+      <path d="M43 68 q17 -8 34 0 q7 3 8 14 l3 30 q0 6 -6 6 h-44 q-6 0 -6 -6 l3 -30 q1 -11 8 -14z" fill="#12233D"/>
+      <!-- shirt + tie -->
+      <path d="M53 66 l7 8 l7 -8 l-4 -3 h-6z" fill="#F6F5EF"/>
+      <path d="M60 74 l-4 6 l4 24 l4 -24z" fill="#0E7A5C"/>
+      <!-- id badge -->
+      <rect x="70" y="88" width="12" height="15" rx="2" fill="#F6F5EF" stroke="#B8842A" stroke-width="1.2"/>
+      <circle cx="76" cy="93" r="2.4" fill="#E8B98A"/>
+      <rect x="72.5" y="97.5" width="7" height="1.6" fill="#12233D"/>
+      <!-- waving right arm -->
+      <g class="g-arm-wave">
+        <path d="M80 70 q12 2 15 -12 q2 -9 -5 -11 q-7 -2 -9 6 l-5 12z" fill="#12233D"/>
+        <circle cx="91" cy="45" r="6" fill="#E8B98A"/>
+      </g>
+      <!-- neck + head -->
+      <rect x="54" y="56" width="12" height="10" rx="4" fill="#E8B98A"/>
+      <circle cx="60" cy="36" r="22" fill="#E8B98A"/>
+      <path d="M38 33 q2 -18 22 -18 q20 0 22 18 q0 -8 -6 -10 q2 4 -2 5 q-14 -9 -28 -1 q-6 2 -8 6z" fill="#141414"/>
+      <ellipse cx="38.5" cy="38" rx="3" ry="4.5" fill="#E8B98A"/>
+      <ellipse cx="81.5" cy="38" rx="3" ry="4.5" fill="#E8B98A"/>
+      <!-- glasses + eyes -->
+      <g class="g-eyes">
+        <circle cx="52" cy="37" r="2.6" fill="#141414"/>
+        <circle cx="68" cy="37" r="2.6" fill="#141414"/>
+      </g>
+      <rect x="45" y="30.5" width="14" height="12" rx="5" fill="none" stroke="#12233D" stroke-width="1.6"/>
+      <rect x="61" y="30.5" width="14" height="12" rx="5" fill="none" stroke="#12233D" stroke-width="1.6"/>
+      <line x1="59" y1="35" x2="61" y2="35" stroke="#12233D" stroke-width="1.6"/>
+      <!-- brows -->
+      <path d="M47 27 q5 -3 10 -1" stroke="#141414" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M63 26 q5 -2 10 1" stroke="#141414" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <!-- mouth (animated when talking) -->
+      <g class="g-mouth">
+        <path d="M53 47 q7 6 14 0" stroke="#8C4A2F" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <div class="guide-hint" id="gHint">CLICK ME ✦</div>
+  </button>
+</div>
+
+<script>
+/* ================= ANIMATED GUIDE — fully client-side, first person ================= */
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const TOUR = [
+  {sel:'#top',        t:"This is me — Priyanshu Verma. 👋 Java backend engineer, 3.8+ years, and Onsite Technical Lead for TCS BaNCS in Johannesburg. That card on the right? A SWIFT MT103 message — the format real banks use to move money. I work with those daily."},
+  {sel:'.ledger',     t:"The numbers that matter: 3 Tier-1 South African banks served onsite — Rand Merchant Bank, ABSA and Standard Bank — with 99.95% production uptime and 6 awards along the way."},
+  {sel:'#experience', t:"My experience reads like a transaction log. At TCS I led the first Azure Cloud deployment of TCS BaNCS, built Tax Management Interfaces hitting 99.9% accuracy, and lifted system reliability from 85% to 98%. Before that — Capgemini, Mumbai."},
+  {sel:'#projects',   t:"Two projects I built end to end:\n\nSentinelFlow — AI fraud detection with 6 Spring Boot microservices, a Kafka exactly-once pipeline, Redis rate limiting and GPT-4o RAG explanations.\n\nPayFlow — an event-driven payment system on Kubernetes, complete with real debugging war stories."},
+  {sel:'#skills',     t:"My toolbox: Java 21, Spring Boot, Apache Kafka, Redis, PostgreSQL, Docker, Kubernetes, AWS and Azure — plus payments-domain depth in SWIFT, ISO 20022 and DTCC."},
+  {sel:'#awards',     t:"Recognition from the field: Employee of the Quarter, Star of the Month twice, On the Spot Award twice for resolving P1/P2 production incidents, and a Best Team Award."},
+  {sel:'#contact',    t:"That's the tour! I'm open to Senior Backend / SDE-II roles in India — relocation-ready and timezone-flexible. Email, LinkedIn and GitHub are right here. Or keep asking me questions below. 🙂"}
+];
+
+const KB = [
+  {keys:["experience","work","tcs","bancs","job","career","onsite","johannesburg","lead","current","role"],
+   a:"I have 3.8+ years as a Java backend engineer.\n\nSince Aug 2022 I've been a System Engineer at TCS and Onsite Technical Lead for TCS BaNCS in Johannesburg — serving Rand Merchant Bank, ABSA and Standard Bank. I led the first Azure Cloud deployment of BaNCS and lifted system reliability from 85% to 98%.\n\nBefore that: Analyst at Capgemini, Mumbai."},
+  {keys:["capgemini","mumbai","analyst","previous","first job"],
+   a:"At Capgemini (Mumbai, Dec 2021 – Jul 2022) I built Bank Management Systems with Java, Spring Boot, PostgreSQL and MongoDB, and deployed containerized apps with Docker & Kubernetes on AWS — cutting deployment time by 65%."},
+  {keys:["sentinelflow","fraud","ai","rag","gpt","llm","ml"],
+   a:"SentinelFlow is my AI-powered fraud detection platform:\n\n• 6 Spring Boot microservices over a Kafka exactly-once pipeline (Outbox pattern)\n• Distributed sliding-window rate limiter on Redis + Lua with Resilience4j\n• GPT-4o RAG fraud explanations with pgvector and a Redis semantic cache\n• OpenTelemetry, Prometheus, Grafana, Jaeger observability\n\nCode: github.com/Priyanshu-V2000"},
+  {keys:["payflow","payment system","second project"],
+   a:"PayFlow is my event-driven payment system: two Spring Boot microservices over Kafka, Redis caching, PostgreSQL, deployed on Kubernetes.\n\nI debugged real distributed-systems failures building it — a Kafka networking hairpin fix, Redis serialization mismatches, K8s image-pull errors — and documented every one."},
+  {keys:["project","projects","portfolio","built","github"],
+   a:"My two flagship projects:\n\n1. SentinelFlow — AI fraud detection: 6 microservices, Kafka exactly-once, Redis rate limiting, GPT-4o RAG.\n2. PayFlow — event-driven payments on Kubernetes with real debugging stories.\n\nAsk me about either by name! GitHub: github.com/Priyanshu-V2000"},
+  {keys:["skill","stack","tech","technology","language","framework","tools","kafka","spring","java","redis","docker","kubernetes","cloud","aws","azure"],
+   a:"My stack:\n\n• Languages — Java (JVM), Python, SQL\n• Backend — Spring Boot, Spring Cloud/Security/Batch, Kafka, Hibernate/JPA, Microservices\n• Cloud & DevOps — AWS, Azure, Docker, Kubernetes, Jenkins, GitHub Actions\n• Data — Oracle DB, PostgreSQL, Cassandra, Redis\n• AI — Azure OpenAI (GPT-4o), RAG with pgvector\n• Domain — SWIFT, ISO 20022, DTCC, TCS BaNCS"},
+  {keys:["award","recognition","achievement","prize"],
+   a:"Six awards at TCS:\n\n🏆 Employee of the Quarter\n⭐ Star of the Month ×2\n⚡ On the Spot Award ×2 — P1/P2 production incidents under tight SLAs\n🤝 Best Team Award — multi-bank BaNCS implementations"},
+  {keys:["education","degree","college","university","btech","cgpa","study"],
+   a:"B.Tech in Electronics & Communication Engineering from PSIT Kanpur — CGPA 9.0/10, class of 2022."},
+  {keys:["bank","rmb","absa","standard","client","swift","iso","dtcc","domain","fintech"],
+   a:"I've worked onsite with three Tier-1 South African banks — Rand Merchant Bank, ABSA and Standard Bank — as Technical Lead for TCS BaNCS.\n\nDeep payments-domain knowledge: SWIFT, ISO 20022, DTCC — and 99.95% uptime on systems moving real money."},
+  {keys:["contact","email","hire","reach","phone","linkedin","connect","interview","available","opportunit","location","relocate","india","notice"],
+   a:"I'm open to Senior Backend / SDE-II roles in India — relocation-ready, timezone-flexible.\n\n📧 priyanshuv0911@gmail.com\n📱 +91 74599 07468\n🔗 linkedin.com/in/priyanshu-verma-7378011ab\n💻 github.com/Priyanshu-V2000"},
+  {keys:["who","about","introduce","summary","tell me","yourself","hi","hello","hey"],
+   a:"I'm Priyanshu — a Java backend engineer with 3.8+ years building banking-grade distributed systems. Currently Onsite Technical Lead for TCS BaNCS in Johannesburg, serving three Tier-1 banks.\n\nAsk me about my experience, projects, stack, awards — or take the tour!"}
+];
+const CHIPS = ["My projects","Tech stack","Experience","Awards","Contact me"];
+
+const gChar = document.getElementById('gChar');
+const gbBubble = document.getElementById('gbBubble');
+const gbText = document.getElementById('gbText');
+const gbActions = document.getElementById('gbActions');
+const gbInputRow = document.getElementById('gbInputRow');
+const gbInput = document.getElementById('gbInput');
+const gHint = document.getElementById('gHint');
+let typeTimer = null, tourIdx = 0;
+
+function wave(){ if(REDUCED) return; gChar.classList.remove('waving'); void gChar.offsetWidth; gChar.classList.add('waving'); }
+
+function say(text, done){
+  clearInterval(typeTimer);
+  gbBubble.classList.add('show');
+  gHint.style.visibility = 'hidden';
+  if(REDUCED){ gbText.textContent = text; if(done) done(); return; }
+  gbText.textContent = '';
+  gChar.classList.add('talking');
+  let i = 0;
+  typeTimer = setInterval(()=>{
+    gbText.textContent = text.slice(0, i += 2);
+    if(i >= text.length){
+      clearInterval(typeTimer);
+      gChar.classList.remove('talking');
+      if(done) done();
+    }
+  }, 14);
+}
+
+function setActions(list, progress){
+  gbActions.innerHTML = '';
+  list.forEach(([label, fn, cls])=>{
+    const b = document.createElement('button');
+    b.className = 'gb-btn' + (cls ? ' ' + cls : '');
+    b.textContent = label; b.onclick = fn;
+    gbActions.appendChild(b);
+  });
+  if(progress){
+    const p = document.createElement('span');
+    p.className = 'gb-progress'; p.textContent = progress;
+    gbActions.appendChild(p);
+  }
+}
+
+function guideGreet(fromHero){
+  if(fromHero) window.scrollTo({top:0, behavior: REDUCED ? 'auto' : 'smooth'});
+  wave();
+  gbInputRow.style.display = 'none';
+  say("Hi there! 👋 I'm Priyanshu.\n\nI build banking-grade backends — Spring Boot, Kafka, and core banking for three Tier-1 banks. Want me to show you around, or would you rather just ask me things?", ()=>{
+    setActions([
+      ["✦ Show me around", startTour, 'seal'],
+      ["Ask me anything", askMode, 'alt']
+    ]);
+  });
+}
+
+function startTour(){ tourIdx = 0; tourStep(); }
+
+function tourStep(){
+  const step = TOUR[tourIdx];
+  const el = document.querySelector(step.sel);
+  if(el) el.scrollIntoView({behavior: REDUCED ? 'auto' : 'smooth', block:'start'});
+  gbInputRow.style.display = 'none';
+  setActions([]);
+  setTimeout(()=>{
+    say(step.t, ()=>{
+      const last = tourIdx === TOUR.length - 1;
+      const actions = last
+        ? [["Ask me anything", askMode, 'seal'], ["Finish", guideMinimize, 'alt']]
+        : [["Next →", ()=>{ tourIdx++; tourStep(); }, 'seal'], ["Skip tour", askMode, 'alt']];
+      setActions(actions, (tourIdx+1) + ' / ' + TOUR.length);
+    });
+  }, REDUCED ? 0 : 450);
+}
+
+function askMode(){
+  gbInputRow.style.display = 'flex';
+  say("Ask me anything — my projects, stack, the banks I've worked with, awards, or how to reach me.", ()=>{
+    setActions(CHIPS.map(c => [c, ()=>guideAsk(c), 'alt']));
+    gbInput.focus();
+  });
+}
+
+function answer(q){
+  const s = q.toLowerCase();
+  let best = null, bestScore = 0;
+  for(const item of KB){
+    let score = 0;
+    for(const k of item.keys){ if(s.includes(k)) score += k.length; }
+    if(score > bestScore){ bestScore = score; best = item; }
+  }
+  return best ? best.a
+    : "Hmm, I'm best at questions about my experience, projects (SentinelFlow, PayFlow), tech stack, awards, education, or contact info. Try one of those — or tap a suggestion below!";
+}
+
+function guideAsk(q){
+  say(answer(q), ()=>{
+    setActions(CHIPS.map(c => [c, ()=>guideAsk(c), 'alt']).concat([["✦ Tour", startTour, 'seal']]));
+  });
+}
+
+function guideSend(){
+  const q = gbInput.value.trim();
+  if(!q) return;
+  gbInput.value = '';
+  guideAsk(q);
+}
+
+function guideMinimize(){
+  clearInterval(typeTimer);
+  gChar.classList.remove('talking');
+  gbBubble.classList.remove('show');
+  gHint.style.visibility = 'visible';
+}
+
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') guideMinimize(); });
+
+/* Auto-greet: the guide waves and speaks shortly after the page loads */
+setTimeout(()=>{ if(!gbBubble.classList.contains('show')) guideGreet(false); }, 1600);
+</script>
+</body>
+</html>
